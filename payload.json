@@ -3,95 +3,66 @@
   "confidentialInstanceConfig": {
     "enableConfidentialCompute": false
   },
-  "cpuPlatform": "Intel Broadwell",
-  "creationTimestamp": "2023-12-13T06:43:38.787-08:00",
   "deletionProtection": false,
   "description": "",
   "disks": [
     {
-      "architecture": "X86_64",
-      "guestOsFeatures": [
-        {
-          "type": "UEFI_COMPATIBLE"
-        },
-        {
-          "type": "VIRTIO_SCSI_MULTIQUEUE"
-        },
-        {
-          "type": "GVNIC"
-        },
-        {
-          "type": "SEV_CAPABLE"
-        }
-      ],
-      "type": "PERSISTENT",
-      "licenses": [
-        "projects/debian-cloud/global/licenses/debian-11-bullseye"
-      ],
-      "deviceName": "slave1",
       "autoDelete": true,
-      "source": "projects/acoustic-bridge-408014/zones/europe-west1-b/disks/slave1",
-      "index": 0,
       "boot": true,
-      "kind": "compute#attachedDisk",
+      "deviceName": "slave1",
+      "initializeParams": {
+        "diskSizeGb": "10",
+        "diskType": "projects/acoustic-bridge-408014/zones/europe-west1-b/diskTypes/pd-standard",
+        "labels": {},
+        "sourceImage": "projects/debian-cloud/global/images/debian-11-bullseye-v20231115"
+      },
       "mode": "READ_WRITE",
-      "interface": "SCSI",
-      "diskSizeGb": "10"
+      "type": "PERSISTENT"
     }
   ],
   "displayDevice": {
     "enableDisplay": false
   },
-  "fingerprint": "QcMLRv2qm3w=",
-  "id": "2808902833709284854",
+  "guestAccelerators": [],
+  "instanceEncryptionKey": {},
   "keyRevocationActionType": "STOP",
-  "kind": "compute#instance",
-  "labelFingerprint": "42WmSpB8rSM=",
-  "lastStartTimestamp": "2023-12-13T06:43:45.352-08:00",
+  "labels": {
+    "goog-ec-src": "vm_add-rest"
+  },
   "machineType": "projects/acoustic-bridge-408014/zones/europe-west1-b/machineTypes/e2-medium",
   "metadata": {
-    "fingerprint": "bdsLPcWVegE=",
-    "kind": "compute#metadata",
     "items": [
       {
-        "value": "apt update\ncurl --output spark.tgz https://dlcdn.apache.org/spark/spark-3.5.0/spark-3.5.0-bin-hadoop3.tgz\napt -y install default-jdk\ntar -xzvf spark.tgz\n./spark-3.5.0-bin-hadoop3/sbin/start-slave.sh spark://spark-master.europe-west1-b.c.acoustic-bridge-408014.internal:7077",
-        "key": "startup-script"
+        "key": "startup-script",
+        "value": "apt update\ncurl --output spark.tgz https://dlcdn.apache.org/spark/spark-3.5.0/spark-3.5.0-bin-hadoop3.tgz\napt -y install default-jdk\ntar -xzvf spark.tgz\n./spark-3.5.0-bin-hadoop3/sbin/start-slave.sh spark://spark-master.europe-west1-b.c.acoustic-bridge-408014.internal:7077apt update"
       }
     ]
   },
   "name": "slave1",
   "networkInterfaces": [
     {
-      "stackType": "IPV4_ONLY",
-      "name": "nic0",
-      "network": "projects/acoustic-bridge-408014/global/networks/default",
       "accessConfigs": [
         {
           "name": "External NAT",
-          "type": "ONE_TO_ONE_NAT",
-          "natIP": "34.22.150.52",
-          "kind": "compute#accessConfig",
           "networkTier": "PREMIUM"
         }
       ],
-      "subnetwork": "projects/acoustic-bridge-408014/regions/europe-west1/subnetworks/default",
-      "networkIP": "10.132.0.3",
-      "fingerprint": "twAZCNkf2LA=",
-      "kind": "compute#networkInterface"
+      "stackType": "IPV4_ONLY",
+      "subnetwork": "projects/acoustic-bridge-408014/regions/europe-west1/subnetworks/default"
     }
   ],
+  "params": {
+    "resourceManagerTags": {}
+  },
   "reservationAffinity": {
     "consumeReservationType": "ANY_RESERVATION"
   },
-  "resourceStatus": {},
   "scheduling": {
-    "onHostMaintenance": "TERMINATE",
-    "provisioningModel": "SPOT",
     "automaticRestart": false,
     "instanceTerminationAction": "STOP",
-    "preemptible": true
+    "onHostMaintenance": "TERMINATE",
+    "provisioningModel": "SPOT"
   },
-  "selfLink": "projects/acoustic-bridge-408014/zones/europe-west1-b/instances/slave1",
   "serviceAccounts": [
     {
       "email": "368626177584-compute@developer.gserviceaccount.com",
@@ -106,22 +77,16 @@
     }
   ],
   "shieldedInstanceConfig": {
+    "enableIntegrityMonitoring": true,
     "enableSecureBoot": false,
-    "enableVtpm": true,
-    "enableIntegrityMonitoring": true
+    "enableVtpm": true
   },
-  "shieldedInstanceIntegrityPolicy": {
-    "updateAutoLearnPolicy": true
+  "tags": {
+    "items": []
   },
-  "shieldedVmConfig": {
-    "enableSecureBoot": false,
-    "enableVtpm": true,
-    "enableIntegrityMonitoring": true
-  },
-  "shieldedVmIntegrityPolicy": {
-    "updateAutoLearnPolicy": true
-  },
-  "startRestricted": false,
+  "zone": "projects/acoustic-bridge-408014/zones/europe-west1-b"
+}
+
   "status": "RUNNING",
   "tags": {
     "fingerprint": "42WmSpB8rSM="

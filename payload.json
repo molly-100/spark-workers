@@ -28,9 +28,9 @@
       "licenses": [
         "projects/debian-cloud/global/licenses/debian-11-bullseye"
       ],
-      "deviceName": "slave3",
+      "deviceName": "slave1",
       "autoDelete": true,
-      "source": "projects/acoustic-bridge-408014/zones/europe-west1-b/disks/slave3",
+      "source": "projects/acoustic-bridge-408014/zones/europe-west1-b/disks/slave1",
       "index": 0,
       "boot": true,
       "kind": "compute#attachedDisk",
@@ -59,7 +59,7 @@
       }
     ]
   },
-  "name": "slave3",
+  "name": "slave1",
   "networkInterfaces": [
     {
       "stackType": "IPV4_ONLY",
@@ -91,7 +91,7 @@
     "instanceTerminationAction": "STOP",
     "preemptible": true
   },
-  "selfLink": "projects/acoustic-bridge-408014/zones/europe-west1-b/instances/slave3",
+  "selfLink": "projects/acoustic-bridge-408014/zones/europe-west1-b/instances/slave1",
   "serviceAccounts": [
     {
       "email": "368626177584-compute@developer.gserviceaccount.com",
